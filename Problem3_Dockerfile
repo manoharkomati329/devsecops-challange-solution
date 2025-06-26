@@ -1,0 +1,9 @@
+
+FROM golang:1.20 AS builder
+WORKDIR /app
+COPY . .
+RUN go build -o datetime-app
+FROM alpine:latest
+COPY --from=builder /app/datetime-app /datetime-app
+EXPOSE 8080
+CMD ["/datetime-app"]

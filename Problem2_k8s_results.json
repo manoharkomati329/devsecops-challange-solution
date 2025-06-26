@@ -1,0 +1,23 @@
+{
+  "frameworks": [
+    {
+      "name": "nsa",
+      "status": "fail",
+      "controls": [
+        {
+          "name": "Privileged Containers",
+          "status": "fail",
+          "description": "Containers should not run with privileged access",
+          "resources": [
+            {
+              "namespace": "default",
+              "resourceKind": "Pod",
+              "resourceName": "nginx",
+              "reason": "Container running as privileged"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
